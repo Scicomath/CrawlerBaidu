@@ -4,6 +4,7 @@
 需要下载BeautifulSoup4
 
 使用方法：
+```
 Usage: CrawlerBaidu.py [options]
 
 Options:
@@ -13,6 +14,7 @@ Options:
   -e ENDPAGE, --endPage=ENDPAGE
   -f FILENAME, --fileName=FILENAME
   -m WRITEMODE, --writeMode=WRITEMODE
+```
 例子：
 ```
 python CrawlerBaidu.py -k 宜昌 -f yichang.txt -s 1 -e 5 -m w
