@@ -15,13 +15,15 @@ def main():
     p.add_option('--fileName','-f',default="result.txt")
     p.add_option('--writeMode','-m',default="w")
     options, arguments = p.parse_args()
+    startPage = int(options.startPage)
+    endPage = int(options.endPage)
 
     baseUrl = 'http://www.baidu.com/s'
     page = 1 #第几页
     #word = '穿戴设备'  #搜索关键词
     file = open(options.fileName,options.writeMode)
 
-    for page in range(options.startPage,options.endPage+1):
+    for page in range(startPage,endPage+1):
         data = {'wd':options.keyword,'pn':str(page-1)+'0','tn':'baidurt','ie':'utf-8','bsst':'1'}
         data = urllib.urlencode(data)
         url = baseUrl+'?'+data
@@ -42,7 +44,7 @@ def main():
 
         for t in td:
             titleStr = t.h3.a.get_text()+u'\n'
-            file.write(titleStr.encode('GBK'))
+            file.write(titleStr.encode('GBK','ignore'))
     
 #search('宜昌',1,3,u'yichang.txt','w')
 if __name__=='__main__':
